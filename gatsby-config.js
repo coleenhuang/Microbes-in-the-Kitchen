@@ -15,6 +15,12 @@ module.exports = {
       repositoryName: 'microbes-in-the-kitchen', // required
       defaultLang: 'en-us', // optional, but recommended
       accessToken: process.env.API_KEY,
+      pages:[{
+        type: 'blog_post',
+        match: '/post/:uid',
+        path: '/post',
+        component: require.resolve('./src/templates/blog-post.js')
+      }]
     }
   },
     `gatsby-plugin-react-helmet`,

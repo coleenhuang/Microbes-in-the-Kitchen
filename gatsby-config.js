@@ -1,10 +1,22 @@
+require("dotenv").config({
+  path:`./.env`,
+})
+
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Microbes in the Kitchen`,
+    description: `A recipe blog with a focus on our microscopic helpers`,
+    author: `@coleenhuang`,
   },
   plugins: [
+    {
+    resolve: 'gatsby-source-prismic-graphql',
+    options: {
+      repositoryName: 'microbes-in-the-kitchen', // required
+      defaultLang: 'en-us', // optional, but recommended
+      accessToken: process.env.API_KEY,
+    }
+  },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,

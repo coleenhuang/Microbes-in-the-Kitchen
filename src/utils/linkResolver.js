@@ -1,8 +1,8 @@
-import { Link, RichText, Date } from 'prismic-reactjs';
-
-export const linkResolver = (doc) => {
-  if (doc.type ==='blog_post'){
-    return `/post/${doc.uid}`
-  }
-  return `/`
-}
+module.exports = {
+  linkResolver(doc) {
+    if (doc.type === 'Recipe') {
+      return `/recipe/${doc.uid}`;
+    }
+    return '/';
+  },
+};

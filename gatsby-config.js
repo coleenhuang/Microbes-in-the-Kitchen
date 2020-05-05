@@ -14,12 +14,16 @@ module.exports = {
     options: {
       repositoryName: 'microbes-in-the-kitchen', // required
       defaultLang: 'en-us', // optional, but recommended
+      langs: ['en-us', 'zh-tw'],
+      shortenUrlLangs: true,
       accessToken: process.env.API_KEY,
-      pages:[{
-        type: 'blog_post',
-        match: '/post/:uid',
-        path: '/post',
-        component: require.resolve('./src/templates/blog-post.js')
+      pages: [
+      {
+      type: 'Recipe',
+      match: '/:lang?/recipe/:uid',
+      path: '/recipe',
+      component: require.resolve('./src/templates/recipe_post.js'),
+      langs: ['en-us', 'zh-tw'],
       }]
     }
   },

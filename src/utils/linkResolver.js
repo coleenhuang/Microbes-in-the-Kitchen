@@ -3,6 +3,9 @@ module.exports = {
     if (doc.type === 'Recipe') {
       return `/recipe/${doc.uid}`;
     }
+    if (doc.type === 'Post') {
+      return `/post/${doc.uid}`;
+    }
     return '/';
   },
 };

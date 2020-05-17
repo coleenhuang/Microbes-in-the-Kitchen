@@ -24,7 +24,14 @@ module.exports = {
       path: '/recipe',
       component: require.resolve('./src/templates/recipe_post.js'),
       langs: ['en-us', 'zh-tw'],
-      }]
+      },
+      {
+        type: 'Post',
+        match: '/:lang?/post/:uid',
+        path: '/post',
+        component: require.resolve('./src/templates/post.js'),
+        langs: ['en-us', 'zh-tw'],
+        }]
     }
   },
     `gatsby-plugin-react-helmet`,

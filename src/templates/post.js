@@ -5,9 +5,9 @@ import React from 'react';
 import Layout from '../components/layout';
 
 export const query = graphql`
-query postQuery($uid: String){
+query postQuery($uid: String $lang: String!){
   prismic {
-    allPosts(uid: $uid) {
+    allPosts(uid: $uid, lang:$lang) {
       edges {
         node {
           _meta {

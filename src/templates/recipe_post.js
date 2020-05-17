@@ -5,9 +5,9 @@ import React from 'react';
 import Layout from '../components/layout';
 
 export const query = graphql`
-query recipeQuery($uid: String){
+query recipeQuery($uid: String $lang: String!){
   prismic {
-    allRecipes(uid: $uid) {
+    allRecipes(uid: $uid, lang: $lang) {
       edges {
         node {
           _meta {

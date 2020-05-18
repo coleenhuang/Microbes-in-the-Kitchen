@@ -6,6 +6,8 @@ module.exports = {
     if (doc.type === 'Post') {
       return `/post/${doc.uid}`;
     }
-    return '/';
+    if (doc.type === "Homepage"){
+      return '/';
+    }
   },
 };

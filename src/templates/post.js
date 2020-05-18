@@ -72,7 +72,6 @@ export default ({data}) => {
         })}
         </div>
       ) )}
-      <h1></h1>
       <Link to="/">Back to index</Link>
     </Layout>
   );

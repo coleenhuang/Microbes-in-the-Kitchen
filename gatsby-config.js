@@ -24,7 +24,14 @@ module.exports = {
         path: '/post',
         component: require.resolve('./src/templates/post.js'),
         langs: ['en-us', 'zh-tw'],
-        }]
+        },
+        {
+          type: 'Homepage',
+          match: '/:lang?',
+          path: '/',
+          component: require.resolve('./src/templates/homepage.js'),
+          langs: ['en-us', 'zh-tw'],
+          }]
     }
   },
     `gatsby-plugin-react-helmet`,

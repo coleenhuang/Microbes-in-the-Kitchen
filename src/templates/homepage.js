@@ -47,7 +47,9 @@ export default ({data}) => {
       ) )}
       {posts.map(({ node }) =>(
         <div key={node._meta.id}>
-            <RichText render={node.title} />
+            <Link to={`${node._meta.lang==='zh-tw'?'zh/post/':'post/'}${node._meta.uid}`}>
+                {node.title[0].text}
+            </Link>
         </div>  
       ))}
       <Link to="/">Back to index</Link>

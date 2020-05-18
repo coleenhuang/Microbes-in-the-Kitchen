@@ -2,6 +2,7 @@ import { graphql, Link } from 'gatsby';
 import { linkResolver } from 'gatsby-source-prismic-graphql';
 import { RichText } from 'prismic-reactjs';
 import React from 'react';
+import Article from '../components/Article'
 import Layout from '../components/layout';
 
 export const query = graphql`
@@ -46,11 +47,10 @@ export default ({data}) => {
         </div>
       ) )}
       {posts.map(({ node }) =>(
-        <div key={node._meta.id}>
-            <Link to={`${node._meta.lang==='zh-tw'?'zh/post/':'post/'}${node._meta.uid}`}>
-                {node.title[0].text}
-            </Link>
-        </div>  
+        <Article key={node._meta.id} 
+        lang={node._meta.lang}
+        uid={node._meta.uid}
+        text={node.title[0].text}/>
       ))}
       <Link to="/">Back to index</Link>
     </Layout>

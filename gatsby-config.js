@@ -19,13 +19,6 @@ module.exports = {
       accessToken: process.env.API_KEY,
       pages: [
       {
-      type: 'Recipe',
-      match: '/:lang?/recipe/:uid',
-      path: '/recipe',
-      component: require.resolve('./src/templates/recipe_post.js'),
-      langs: ['en-us', 'zh-tw'],
-      },
-      {
         type: 'Post',
         match: '/:lang?/post/:uid',
         path: '/post',

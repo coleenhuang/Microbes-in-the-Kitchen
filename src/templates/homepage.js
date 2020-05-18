@@ -19,11 +19,25 @@ query homepageQuery($uid: String $lang: String!){
         }
       }
     }
+    allPosts(lang: $lang) {
+        edges {
+            node {
+                _meta {
+                  id
+                  lang
+                  uid
+                }
+                title
+            }
+        }
+    }
   }
 }`
 
 export default ({data}) => {
   const homepage = data.prismic.allHomepages.edges
+  const posts = data.prismic.allPosts.edges
+  console.log(posts)
   return (
     <Layout>
       {homepage.map(({ node }) => (
@@ -31,7 +45,11 @@ export default ({data}) => {
         <RichText render={node.title} />
         </div>
       ) )}
-      
+      {posts.map(({ node }) =>(
+        <div key={node._meta.id}>
+            <RichText render={node.title} />
+        </div>  
+      ))}
       <Link to="/">Back to index</Link>
     </Layout>
   );

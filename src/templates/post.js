@@ -50,6 +50,7 @@ query postQuery($uid: String $lang: String!){
 
 export default ({data}) => {
   const post = data.prismic.allPosts.edges
+  console.log(post[0])
   return (
     <Layout>
       {post.map(({ node }) => (

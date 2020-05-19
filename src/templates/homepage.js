@@ -29,6 +29,7 @@ query homepageQuery($uid: String $lang: String!){
                   uid
                 }
                 title
+                main_image
             }
         }
     }
@@ -39,6 +40,7 @@ export default ({data}) => {
   const homepage = data.prismic.allHomepages.edges
   const posts = data.prismic.allPosts.edges
   console.log(posts)
+
   return (
     <Layout>
       {homepage.map(({ node }) => (
@@ -46,12 +48,17 @@ export default ({data}) => {
         <RichText render={node.title} />
         </div>
       ) )}
-      {posts.map(({ node }) =>(
-        <Article key={node._meta.id} 
+      {posts.map(({ node }, index) =>{
+          console.log(node.main_image.homepage)
+          return (
+        <Article key={index} 
+        item={node._meta.id} 
         lang={node._meta.lang}
         uid={node._meta.uid}
-        text={node.title[0].text}/>
-      ))}
+        image={node.main_image.homepage}>
+            {node.title[0].text}
+        </Article>
+      )})}
       <Link to="/">Back to index</Link>
     </Layout>
   );

@@ -1,4 +1,4 @@
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import { linkResolver } from 'gatsby-source-prismic-graphql';
 import { RichText } from 'prismic-reactjs';
 import React from 'react';
@@ -43,11 +43,6 @@ export default ({data}) => {
 
   return (
     <Layout>
-      {homepage.map(({ node }) => (
-        <div key={node._meta.id}>
-        <RichText render={node.title} />
-        </div>
-      ) )}
       {posts.map(({ node }, index) =>{
           console.log(node.main_image.homepage)
           return (
@@ -59,7 +54,6 @@ export default ({data}) => {
             {node.title[0].text}
         </Article>
       )})}
-      <Link to="/">Back to index</Link>
     </Layout>
   );
 }

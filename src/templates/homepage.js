@@ -3,7 +3,7 @@ import { linkResolver } from 'gatsby-source-prismic-graphql';
 import { RichText } from 'prismic-reactjs';
 import React from 'react';
 import Article from '../components/Article'
-import Layout from '../components/layout';
+import Layout from '../components/layout/layout';
 
 export const query = graphql`
 query homepageQuery($uid: String $lang: String!){

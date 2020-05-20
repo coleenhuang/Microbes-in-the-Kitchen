@@ -3,7 +3,7 @@ import { Img } from 'gatsby-image';
 import { linkResolver } from 'gatsby-source-prismic-graphql';
 import { RichText } from 'prismic-reactjs';
 import React from 'react';
-import Layout from '../components/layout';
+import Layout from '../components/layout/layout';
 
 export const query = graphql`
 query postQuery($uid: String $lang: String!){
@@ -56,7 +56,7 @@ export default ({data}) => {
       {post.map(({ node }) => (
         <div key={node._meta.id}>
         <RichText render={node.title} />
-        {node.main_image && <img src={node.main_image.url} alt={node.main_image.alt} />}
+        {node.main_image && <img src={node.main_image.homepage.url} alt={node.main_image.homepage.alt} />}
         {node.body.map((slice, index) =>{
           if (slice.type==='text'){
             return RichText.render(slice.primary.text, linkResolver)

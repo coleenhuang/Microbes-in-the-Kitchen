@@ -5,7 +5,7 @@ const Article = (props) => {
     const imageUrl = props.image.homepage?props.image.homepage.url:props.image.url
     return (
         <div className={styles.flexContainer} key={props.item}>
-            <img url={props.image.url} alt={props.image.alt}/>
+            <img className={styles.mainImage} src={props.image.url} alt={props.image.alt}/>
             <LocalizedLink lang={props.lang} type='post' uid={props.uid}>
                 {props.children}
             </LocalizedLink>

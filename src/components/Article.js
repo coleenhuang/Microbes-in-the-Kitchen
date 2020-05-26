@@ -10,6 +10,7 @@ const Article = (props) => {
                 <LocalizedLink lang={props.lang} type='post' uid={props.uid}>
                     <h2>{props.children}</h2>
                 </LocalizedLink>
+                <p>{props.date}</p>
             </div>
         </div>
     )

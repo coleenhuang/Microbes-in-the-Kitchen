@@ -22,7 +22,7 @@ const SideNav = () => {
     const groups = data.prismic.allGroups.edges.filter(group => group.node._meta.lang === lang)
     
     return (
-        <div style={{gridColumn: '-2/-1'}}>
+        <div style={{gridColumn: '-3/-2', gridRow:'3/4'}}>
             <ul>
                 {groups.map(({ node }) => {
                     return (

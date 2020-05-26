@@ -3,7 +3,7 @@ import styles from './TopNav.module.css'
 
 const TopNav = () => {
     return (
-        <div>
+        <div className={styles.position}>
             <ul className={styles.flexContainer}>
                 <li>About</li>
                 <li>Bookshelf</li>

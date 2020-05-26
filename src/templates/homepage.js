@@ -30,6 +30,7 @@ query homepageQuery($uid: String $lang: String!){
                   uid
                 }
                 title
+                date
                 main_image
             }
         }
@@ -46,12 +47,12 @@ export default ({data}) => {
     <Layout>
       <div className='innerGrid'>
         {posts.map(({ node }, index) =>{
-          console.log(node.main_image.homepage)
           return (
           <Article key={index} 
             item={node._meta.id} 
             lang={node._meta.lang}
             uid={node._meta.uid}
+            date={node.date}
             image={node.main_image.homepage}>
               {node.title[0].text}
           </Article>

@@ -4,6 +4,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
 import TopNav from './TopNav'
+import SideNav from './SideNav'
 import "./layout.css"
 
 const Layout = ({ children }) => {
@@ -21,6 +22,7 @@ const Layout = ({ children }) => {
     <div className='grid'>
       <Header siteTitle={data.site.siteMetadata.title} />
       <TopNav />
+      <SideNav />
       <main>{children}</main>
       <footer>
         © {new Date().getFullYear()}, Built with

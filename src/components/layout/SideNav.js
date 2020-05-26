@@ -2,14 +2,37 @@ import React from 'react';
 import { Link, useStaticQuery } from 'gatsby'
 
 const SideNav = () => {
-    /*const data = useStaticQuery(graphql`
+    const data = useStaticQuery(graphql`
     query groupQuery {
         prismic {
-
+            allGroups {
+                edges {
+                  node {
+                    _meta {
+                      id
+                      lang
+                    }
+                    group
+                  }
+                }
+            }
         }
-    }`)*/
+    }`)
+    const lang = 'en-us'
+    const groups = data.prismic.allGroups.edges.filter(group => group.node._meta.lang === lang)
+    
     return (
-        <div></div>
+        <div style={{gridColumn: '-2/-1'}}>
+            <ul>
+                {groups.map(({ node }) => {
+                    return (
+                        <li key={node._meta.id}>
+                          {node.group}
+                        </li>
+                    )
+                })}
+            </ul>
+        </div>
     )
 }
 

@@ -73,7 +73,6 @@ export default ({data}) => {
         })}
         </div>
       ) )}
-      <Link to="/">Back to index</Link>
     </Layout>
   );
 }

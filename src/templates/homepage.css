@@ -1,5 +1,22 @@
 .innerGrid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 2rem
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media (min-width: 480px){
+
+}
+
+@media (min-width: 768px){
+    
+}
+@media (min-width: 992px){
+    
+}
+@media (min-width: 1200px){
+    .innerGrid {
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 2rem
+    }
 }

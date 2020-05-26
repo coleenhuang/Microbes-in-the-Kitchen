@@ -22,8 +22,9 @@ const SideNav = () => {
     const groups = data.prismic.allGroups.edges.filter(group => group.node._meta.lang === lang)
     
     return (
-        <div style={{gridColumn: '-3/-2', gridRow:'3/4'}}>
+        <div style={{gridColumn: '-3/-2', gridRowStart:'3'}}>
             <ul>
+                Categories
                 {groups.map(({ node }) => {
                     return (
                         <li key={node._meta.id}>
@@ -31,6 +32,17 @@ const SideNav = () => {
                         </li>
                     )
                 })}
+            </ul>
+            <ul>
+                My Links
+                <li>My Ferments</li>
+                <li>Guide to rice</li>
+            </ul>
+            <ul>
+                Other Links
+                <li>
+                    <a href={"https://www.homebaking.at"}>Home Baking</a>
+                </li>
             </ul>
         </div>
     )

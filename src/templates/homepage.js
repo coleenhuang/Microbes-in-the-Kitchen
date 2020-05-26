@@ -4,6 +4,7 @@ import { RichText } from 'prismic-reactjs';
 import React from 'react';
 import Article from '../components/Article'
 import Layout from '../components/layout/layout';
+import "./homepage.css"
 
 export const query = graphql`
 query homepageQuery($uid: String $lang: String!){
@@ -43,17 +44,20 @@ export default ({data}) => {
 
   return (
     <Layout>
-      {posts.map(({ node }, index) =>{
+      <div className='innerGrid'>
+        {posts.map(({ node }, index) =>{
           console.log(node.main_image.homepage)
           return (
-        <Article key={index} 
-        item={node._meta.id} 
-        lang={node._meta.lang}
-        uid={node._meta.uid}
-        image={node.main_image.homepage}>
-            {node.title[0].text}
-        </Article>
-      )})}
+          <Article key={index} 
+            item={node._meta.id} 
+            lang={node._meta.lang}
+            uid={node._meta.uid}
+            image={node.main_image.homepage}>
+              {node.title[0].text}
+          </Article>
+        )})}
+      </div>
+      
     </Layout>
   );
 }

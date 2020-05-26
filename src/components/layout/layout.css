@@ -1,12 +1,38 @@
 .grid {
+    padding: 0 15%;
     display: grid;
 }
 
-@media (min-width: 480px){
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Ovo';
+}
 
+* {
+    font-family: 'Muli';
+}
+
+footer {
+    grid-column: 1/-1;
+}
+
+@media (min-width: 480px){
+    .grid {
+        display: grid;
+        grid-template-columns: auto 300px;
+        
+    }
 }
 
 @media (min-width: 768px){
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 300px;
+    }
+
+    main {
+        grid-column: 1/-2;
+        padding: 5rem;
+    }
     
 }
 @media (min-width: 992px){

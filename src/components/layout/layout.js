@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
 import TopNav from './TopNav'
-import SideNav from './SideNav'
+import SideNav from '../sidenav/SideNav'
 import "./layout.css"
 
 const Layout = ({ children }) => {

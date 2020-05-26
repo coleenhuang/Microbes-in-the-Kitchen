@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useStaticQuery } from 'gatsby'
-
+import MyLinks from './MyLinks'
+import OtherLinks from './OtherLinks'
 const SideNav = () => {
     const data = useStaticQuery(graphql`
     query groupQuery {
@@ -33,17 +34,8 @@ const SideNav = () => {
                     )
                 })}
             </ul>
-            <ul>
-                My Links
-                <li>My Ferments</li>
-                <li>Guide to rice</li>
-            </ul>
-            <ul>
-                Other Links
-                <li>
-                    <a href={"https://www.homebaking.at"}>Home Baking</a>
-                </li>
-            </ul>
+            <MyLinks />
+            <OtherLinks />
         </div>
     )
 }

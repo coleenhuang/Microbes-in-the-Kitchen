@@ -54,7 +54,7 @@ export default ({data}) => {
   return (
     <Layout>
       {post.map(({ node }) => (
-        <div key={node._meta.id}>
+        <div key={node._meta.id} styles={{padding: '0 2rem 2rem 2rem'}}>
         <RichText render={node.title} />
         {node.main_image && <img src={node.main_image.homepage.url} alt={node.main_image.homepage.alt} />}
         {node.body.map((slice, index) =>{

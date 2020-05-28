@@ -1,9 +1,11 @@
 .gridItem {
     display: inline-grid;
+    grid-column: span 1;
+    grid-row: span 1;
+    margin: 0 auto;
 }
 
 .flexContainer {
-    width: 500px;
     display: flex;
     flex-direction: column;
 }

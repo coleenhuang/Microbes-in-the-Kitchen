@@ -32,6 +32,7 @@ query homepageQuery($uid: String $lang: String!){
                 title
                 date
                 main_image
+               
             }
         }
     }
@@ -46,7 +47,8 @@ export default ({data}) => {
   return (
     <Layout>
       <div className='innerGrid'>
-        {posts.map(({ node }, index) =>{
+        <div className='articleContainer'>
+          {posts.map(({ node }, index) =>{
           return (
           <Article key={index} 
             item={node._meta.id} 
@@ -55,8 +57,11 @@ export default ({data}) => {
             date={node.date}
             image={node.main_image.homepage}>
               {node.title[0].text}
+              
           </Article>
-        )})}
+          )})}
+        </div>
+        
       </div>
       
     </Layout>

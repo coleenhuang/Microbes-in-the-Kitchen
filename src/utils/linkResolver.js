@@ -6,6 +6,9 @@ module.exports = {
     if (doc.type === 'Post') {
       return `/post/${doc.uid}`;
     }
+    if (doc.type === 'Group') {
+      return `/category/${doc.uid}`;
+    }
     if (doc.type === "Homepage"){
       return '/';
     }

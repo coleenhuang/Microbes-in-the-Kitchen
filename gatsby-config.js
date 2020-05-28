@@ -31,7 +31,14 @@ module.exports = {
           path: '/',
           component: require.resolve('./src/templates/homepage.js'),
           langs: ['en-us', 'zh-tw'],
-          }]
+          },
+          {
+            type: 'Group',
+            match: '/:lang?/category/:uid',
+            path: '/category',
+            component: require.resolve('./src/templates/group.js'),
+            langs: ['en-us', 'zh-tw'],
+            },]
     }
   },
     `gatsby-plugin-react-helmet`,

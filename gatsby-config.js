@@ -34,8 +34,8 @@ module.exports = {
           },
           {
             type: 'Group',
-            match: '/:lang?/category/:uid',
-            path: '/category',
+            match: '/:lang?/group/:uid',
+            path: '/group',
             component: require.resolve('./src/templates/group.js'),
             langs: ['en-us', 'zh-tw'],
             },]

@@ -21,30 +21,58 @@ query groupQuery($uid: String $lang: String!){
           }
         }
         allPosts(lang: $lang) {
-          edges {
-            node {
-              _meta {
-                id
-                lang
+            edges {
+              node {
+                title
+                _meta {
+                  id
+                  lang
+                }
+                body1 {
+                  ... on PRISMIC_PostBody1Group {
+                    type
+                    fields {
+                      group {
+                        ... on PRISMIC_Group {
+                          group
+                          _meta {
+                            id
+                            lang
+                            uid
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
               }
-              title
             }
           }
-        }
       }
 }`
 
 export default ({data}) => {
-  const group = data.prismic.allGroups.edges
-  const posts = data.prismic.allPosts.edges
+  const group = data.prismic.allGroups.edges.slice(0,1).pop()
+  const posts = data.prismic.allPosts.edges.filter(
+    ({node}) => {
+      const g = node.body1.find((i) => i.type ==='group')
+      console.log('g', g)
+      const postList =[]
+      g.fields.forEach(gr => postList.push(gr.group.group))
+      console.log(postList)
+      console.log(group.node.group)
+      return postList.includes(group.node.group)
+    }
+  )
+    console.log('posts', posts)
   return (
     <Layout>
-      {group.map(({ node }) => (
-        <h2 key={node._meta.id}>{node.group}</h2>
-      ) )}
-        {posts.map(({ node }) => (
+        <h2 key={group.node._meta.id}>{group.node.group}</h2>
+        {/*posts.map(({ node }) => {
+            return(
             <p>{node.title[0].text}</p>
-        ))
+            
+        )})*/
         }
       <Link to="/">Back to index</Link>
     </Layout>

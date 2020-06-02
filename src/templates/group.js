@@ -68,11 +68,11 @@ export default ({data}) => {
   return (
     <Layout>
         <h2 key={group.node._meta.id}>{group.node.group}</h2>
-        {/*posts.map(({ node }) => {
+        {posts.map(({ node }) => {
             return(
             <p>{node.title[0].text}</p>
             
-        )})*/
+        )})
         }
       <Link to="/">Back to index</Link>
     </Layout>

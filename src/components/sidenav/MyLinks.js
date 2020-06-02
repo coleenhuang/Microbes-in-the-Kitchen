@@ -2,11 +2,14 @@ import React from 'react'
 
 const MyLinks = () => {
     return (
-        <ul>
-            My Links
-            <li>My Ferments</li>
-            <li>Guide to rice</li>
-        </ul>
+        <section>
+            <h4>My Links</h4>
+            <ul style={{listStyleType: 'none'}}>
+                <li>My Ferments</li>
+                <li>Guide to rice</li>
+             </ul>
+        </section>
+        
     )
 }
 

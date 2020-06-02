@@ -24,16 +24,18 @@ const SideNav = () => {
     
     return (
         <div style={{gridColumn: '-3/-2', gridRowStart:'3'}}>
-            <ul>
-                Categories
-                {groups.map(({ node }) => {
-                    return (
-                        <li key={node._meta.id}>
-                          {node.group}
-                        </li>
-                    )
-                })}
-            </ul>
+            <section>
+                <h4>Categories</h4>
+                <ul style={{listStyleType: 'none'}}>
+                    {groups.map(({ node }) => {
+                        return (
+                            <li key={node._meta.id}>
+                            {node.group}
+                            </li>
+                        )
+                    })}
+                </ul>
+            </section>
             <MyLinks />
             <OtherLinks />
         </div>

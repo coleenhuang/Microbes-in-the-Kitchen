@@ -72,14 +72,7 @@ export default ({data}) => {
         <h2 key={group.node._meta.id}>{group.node.group}</h2>
         {posts.map(({ node }, index) => {
             return(
-              <Article key={index} 
-              item={node._meta.id} 
-              lang={node._meta.lang}
-              uid={node._meta.uid}
-              date={node.date}
-              image={node.main_image.homepage}>
-                {node.title[0].text}
-            </Article>
+              <Article key={index} node={node} />
         )})
         }
       <Link to="/">Back to index</Link>

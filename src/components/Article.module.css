@@ -11,6 +11,17 @@
     height: 300px;
 }
 
+.date {
+    font-size: 14px;
+    color: grey;
+    margin: 0;
+    padding: 0;
+}
+
+.sub{
+    text-align: center;
+}
+
 
 
 a {

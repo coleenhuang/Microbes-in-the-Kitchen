@@ -32,7 +32,7 @@ query homepageQuery($uid: String $lang: String!){
                 title
                 date
                 main_image
-               
+                summary
             }
         }
     }
@@ -42,11 +42,8 @@ query homepageQuery($uid: String $lang: String!){
 export default ({data}) => {
   const homepage = data.prismic.allHomepages.edges
   const posts = data.prismic.allPosts.edges
-  console.log(posts)
-
   return (
     <Layout>
-      <div className='innerGrid'>
         <div className='articleContainer'>
           {posts.map(({ node }, index) =>{
           return (
@@ -56,13 +53,13 @@ export default ({data}) => {
             uid={node._meta.uid}
             date={node.date}
             image={node.main_image.homepage}>
-              {node.title[0].text}
-              
+              <h2>{node.title[0].text}</h2>
+              <p className='date sub'>{node.date}</p>
+              <RichText className='sub' render={node.summary} />
           </Article>
           )})}
         </div>
-        
-      </div>
+
       
     </Layout>
   );

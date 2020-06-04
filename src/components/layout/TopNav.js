@@ -8,6 +8,7 @@ const TopNav = () => {
                 <li>About</li>
                 <li>Bookshelf</li>
                 <li>Recipes</li>
+                <li>Tags</li>
             </ul>
         </div>
     )

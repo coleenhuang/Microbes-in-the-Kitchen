@@ -6,7 +6,7 @@ import Layout from '../components/layout/layout';
 import Article from  '../components/Article'
 
 export const query = graphql`
-query grQuery($uid: String $lang: String!){
+query gQuery($uid: String $lang: String!){
     prismic {
         allGroups(uid: $uid, lang: $lang) {
           edges {

@@ -28,7 +28,7 @@ const SideNav = () => {
     return (
         <div style={{gridColumn: '-3/-2', gridRowStart:'3'}}>
             <section>
-                <h4>Categories</h4>
+                <h4 style={{textAlign: 'center'}}>Categories</h4>
                 <ul style={{listStyleType: 'none'}}>
                     {groups.map(({ node }) => {
                         return (

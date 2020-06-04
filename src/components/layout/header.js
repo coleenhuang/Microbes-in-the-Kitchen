@@ -8,7 +8,8 @@ const Header = ({ siteTitle }) => (
       gridColumn: '1/-1',
       gridRow: '1/2',
       display: 'block',
-      marginBottom: `1.45rem`,
+      marginTop: '1.45rem',
+      marginBottom: `1rem`,
     }}
   >
     <div

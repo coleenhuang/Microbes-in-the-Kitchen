@@ -2,6 +2,8 @@ import React from 'react';
 import { Link, useStaticQuery } from 'gatsby'
 import MyLinks from './MyLinks'
 import OtherLinks from './OtherLinks'
+import LocalizedLink from '../../utils/localizedLink'
+
 const SideNav = () => {
     const data = useStaticQuery(graphql`
     query groupQuery {
@@ -12,6 +14,7 @@ const SideNav = () => {
                     _meta {
                       id
                       lang
+                      uid
                     }
                     group
                   }
@@ -30,7 +33,9 @@ const SideNav = () => {
                     {groups.map(({ node }) => {
                         return (
                             <li key={node._meta.id}>
-                            {node.group}
+                                <LocalizedLink lang={lang} type='group' uid={node._meta.uid}>
+                                    {node.group}
+                                </LocalizedLink>
                             </li>
                         )
                     })}

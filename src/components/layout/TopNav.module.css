@@ -1,0 +1,13 @@
+.position {
+    grid-column: 2/-1;
+    grid-row: 2/3;
+}
+.flexContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.flexContainer li {
+    list-style-type: none;
+    padding: 2rem;
+}

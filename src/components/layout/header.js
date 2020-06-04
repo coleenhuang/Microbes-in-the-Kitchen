@@ -5,8 +5,11 @@ import React from "react"
 const Header = ({ siteTitle }) => (
   <header
     style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
+      gridColumn: '1/-1',
+      gridRow: '1/2',
+      display: 'block',
+      marginTop: '1.45rem',
+      marginBottom: `1rem`,
     }}
   >
     <div
@@ -16,11 +19,12 @@ const Header = ({ siteTitle }) => (
         padding: `1.45rem 1.0875rem`,
       }}
     >
-      <h1 style={{ margin: 0 }}>
+      <h1 style={{ margin: 0, textAlign: 'center' }}>
         <Link
           to="/"
           style={{
-            color: `white`,
+            fontFamily:'Ovo',
+            color: 'black',
             textDecoration: `none`,
           }}
         >

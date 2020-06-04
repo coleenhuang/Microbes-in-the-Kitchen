@@ -2,10 +2,11 @@ import { graphql, Link } from 'gatsby';
 import { linkResolver } from 'gatsby-source-prismic-graphql';
 import { RichText } from 'prismic-reactjs';
 import React from 'react';
-import Layout from '../components/layout';
+import Layout from '../components/layout/layout';
+import Article from  '../components/Article'
 
 export const query = graphql`
-query groupQuery($uid: String $lang: String!){
+query grQuery($uid: String $lang: String!){
     prismic {
         allGroups(uid: $uid, lang: $lang) {
           edges {
@@ -28,6 +29,7 @@ query groupQuery($uid: String $lang: String!){
                   id
                   lang
                 }
+                main_image
                 body1 {
                   ... on PRISMIC_PostBody1Group {
                     type
@@ -68,10 +70,9 @@ export default ({data}) => {
   return (
     <Layout>
         <h2 key={group.node._meta.id}>{group.node.group}</h2>
-        {posts.map(({ node }) => {
+        {posts.map(({ node }, index) => {
             return(
-            <p>{node.title[0].text}</p>
-            
+              <Article key={index} node={node} />
         )})
         }
       <Link to="/">Back to index</Link>

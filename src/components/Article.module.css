@@ -1,5 +1,30 @@
 .flexContainer {
-    width: 500px;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.mainImage {
+    width: 300px;
+    height: 300px;
+}
+
+.date {
+    font-size: 14px;
+    color: grey;
+    margin: 0;
+    padding: 0;
+}
+
+.sub{
+    text-align: center;
+}
+
+
+
+a {
+    text-decoration: none;
+    color: black;
 }

@@ -9,6 +9,9 @@ module.exports = {
     if (doc.type === 'Group') {
       return `/group/${doc.uid}`;
     }
+    if (doc.type ==='Tag') {
+      return `/tag/${doc.uid}`
+    }
     if (doc.type === "Homepage"){
       return '/';
     }

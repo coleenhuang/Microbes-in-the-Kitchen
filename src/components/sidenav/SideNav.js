@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useStaticQuery } from 'gatsby'
+import { Link, useStaticQuery, graphql } from 'gatsby'
 import MyLinks from './MyLinks'
 import OtherLinks from './OtherLinks'
 import LocalizedLink from '../../utils/localizedLink'

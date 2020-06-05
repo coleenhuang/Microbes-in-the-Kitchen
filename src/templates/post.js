@@ -1,5 +1,4 @@
 import { graphql, Link } from 'gatsby';
-import { Img } from 'gatsby-image';
 import { linkResolver } from 'gatsby-source-prismic-graphql';
 import { RichText } from 'prismic-reactjs';
 import React from 'react';

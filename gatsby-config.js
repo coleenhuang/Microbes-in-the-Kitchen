@@ -32,20 +32,26 @@ module.exports = {
           component: require.resolve('./src/templates/homepage.js'),
           langs: ['en-us', 'zh-tw'],
       },
-          {
-            type: 'Group',
-            match: '/:lang?/group/:uid',
-            path: '/group',
-            component: require.resolve('./src/templates/group.js'),
-            langs: ['en-us', 'zh-tw'],
-          },
-          {
-            type: 'Tag',
-            match: '/:lang?/tag/:uid',
-            path: '/tag',
-            component: require.resolve('./src/templates/tag.js'),
-            langs: ['en-us', 'zh-tw'],
-          }]
+      {
+          type: 'Bookshelf',
+          match: '/bookshelf',
+          path:'/bookshelf',
+          component: require.resolve('./src/templates/bookshelf.js')
+      },
+      {
+        type: 'Group',
+        match: '/:lang?/group/:uid',
+        path: '/group',
+        component: require.resolve('./src/templates/group.js'),
+        langs: ['en-us', 'zh-tw'],
+      },
+      {
+        type: 'Tag',
+        match: '/:lang?/tag/:uid',
+        path: '/tag',
+        component: require.resolve('./src/templates/tag.js'),
+        langs: ['en-us', 'zh-tw'],
+      }]
     }
   },
     `gatsby-plugin-react-helmet`,

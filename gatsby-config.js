@@ -34,9 +34,10 @@ module.exports = {
       },
       {
           type: 'Bookshelf',
-          match: '/bookshelf',
+          match: '/:lang?/bookshelf',
           path:'/bookshelf',
-          component: require.resolve('./src/templates/bookshelf.js')
+          component: require.resolve('./src/templates/bookshelf.js'),
+          langs: ['en-us', 'zh-tw']
       },
       {
         type: 'Group',

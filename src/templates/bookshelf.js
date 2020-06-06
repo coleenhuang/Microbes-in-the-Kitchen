@@ -5,9 +5,9 @@ import { RichText } from 'prismic-reactjs'
 import { linkResolver } from 'gatsby-source-prismic-graphql';
 
 export const query = graphql`
-query bookshelfQuery {
+query bookshelfQuery($uid: String! $lang: String!) {
     prismic {
-      bookshelf(lang: "en-us", uid: "bookshelf") {
+      bookshelf(lang: $lang, uid: $uid) {
         _meta {
           id
           lang

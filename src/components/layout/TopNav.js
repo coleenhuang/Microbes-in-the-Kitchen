@@ -7,13 +7,16 @@ const TopNav = () => {
     return (
         <div className={styles.position}>
             <ul className={styles.flexContainer}>
-                <li>About</li>
+                <li>
+                    <Link to='/about'>About</Link>
+                </li>
                 <li>
                     <Link to='/bookshelf'>
                         Bookshelf
                     </Link>
                 </li>
-                <li>Recipes</li>
+                <li>
+                    Recipes</li>
                 <li>Tags</li>
             </ul>
         </div>

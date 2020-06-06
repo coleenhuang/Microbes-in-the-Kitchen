@@ -40,6 +40,13 @@ module.exports = {
           langs: ['en-us', 'zh-tw']
       },
       {
+        type: 'About',
+        match: '/:lang?/about',
+        path:'/about',
+        component: require.resolve('./src/templates/about.js'),
+        langs: ['en-us', 'zh-tw']
+      },
+      {
         type: 'Group',
         match: '/:lang?/group/:uid',
         path: '/group',

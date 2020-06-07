@@ -21,7 +21,7 @@ query homepageQuery($uid: String $lang: String!){
         }
       }
     }
-    allPosts(lang: $lang) {
+    allPosts(lang: $lang, sortBy: date_DESC) {
         edges {
             node {
                 _meta {

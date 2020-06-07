@@ -16,7 +16,10 @@ const TopNav = () => {
                     </Link>
                 </li>
                 <li>
-                    Recipes</li>
+                    <Link to='/recipes'>
+                        Recipes
+                    </Link>     
+                </li>
                 <li>Tags</li>
             </ul>
         </div>

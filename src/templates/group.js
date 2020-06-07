@@ -58,11 +58,8 @@ export default ({data}) => {
   const posts = data.prismic.allPosts.edges.filter(
     ({node}) => {
       const g = node.body1.find((i) => i.type ==='group')
-      console.log('g', g)
       const postList =[]
       g.fields.forEach(gr => postList.push(gr.group.group))
-      console.log(postList)
-      console.log(group.node.group)
       return postList.includes(group.node.group)
     }
   )

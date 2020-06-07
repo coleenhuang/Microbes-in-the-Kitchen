@@ -28,7 +28,7 @@ query recipeQuery($lang: String){
 `
 
 export default ({data}) => {
-    const posts = data.prismic.allPosts.edges
+    const posts = data.prismic.allPosts.edges.filter(({node}) => node.category.category==='Recipes')
     return (
         <Layout>
             <h2>Recipes</h2>

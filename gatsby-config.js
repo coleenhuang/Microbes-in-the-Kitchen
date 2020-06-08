@@ -13,10 +13,11 @@ module.exports = {
     resolve: 'gatsby-source-prismic-graphql',
     options: {
       repositoryName: 'microbes-in-the-kitchen', // required
-      defaultLang: 'en-us', // optional, but recommended
+      defaultLang: 'en-us', 
       langs: ['en-us', 'zh-tw'],
       shortenUrlLangs: true,
       accessToken: process.env.API_KEY,
+      previews: false,
       pages: [
       {
         type: 'Post',

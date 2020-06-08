@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/layout/layout'
+import LocalizedLink from '../utils/localizedLink'
 
 export const query = graphql`
 query recipeQuery($lang: String){
@@ -34,7 +35,10 @@ export default ({data}) => {
             <h2>Recipes</h2>
             {posts.map(({ node }) => {
                 return(
-                <p key={node._meta.id}>{node.title[0].text}</p>
+                  <LocalizedLink lang={node._meta.lang} type='post' uid={node._meta.uid}>
+                    <p key={node._meta.id}>{node.title[0].text}</p>
+                  </LocalizedLink>
+                  
                 )
             })}
         </Layout>

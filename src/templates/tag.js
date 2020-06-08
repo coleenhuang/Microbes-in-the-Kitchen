@@ -1,5 +1,4 @@
-import { graphql, Link } from 'gatsby';
-import { linkResolver } from 'gatsby-source-prismic-graphql';
+import { graphql} from 'gatsby';
 import React from 'react';
 import Layout from '../components/layout/layout';
 import Article from  '../components/Article'
@@ -59,6 +58,9 @@ export default ({data}) => {
       const t = node.body1.find((i) => i.type ==='tags')
       console.log('t', t)
       const tagList =[]
+      if(t===undefined){
+        return false
+      }
       t.fields.forEach(ta => tagList.push(ta.tag.tag))
       console.log(tagList)
       console.log(tag.node.tag)
@@ -74,7 +76,6 @@ export default ({data}) => {
               <Article key={index} node={node} />
         )})
         }
-      <Link to="/">Back to index</Link>
     </Layout>
   );
 }

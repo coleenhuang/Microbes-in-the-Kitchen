@@ -51,8 +51,6 @@ export default ({data}) => {
 
           )})}
         </div>
-
-      
     </Layout>
   );
 }

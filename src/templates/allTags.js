@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/layout/layout'
-import { node } from 'prop-types'
+import LocalizedLink from '../utils/localizedLink'
 
 export const query = graphql`
 query alltagQuery($lang: String){
@@ -25,7 +25,10 @@ export default ({data}) => {
         <Layout>
             <h2>Tags</h2>
             {tags.map(({ node }) => (
+              <LocalizedLink lang={node._meta.lang} type='tag' uid={node._meta.uid}>
                 <p key={node._meta.id} style={{textAlign:'center'}}>{node.tag}</p>
+              </LocalizedLink>
+                
             ))}
         </Layout>
     )

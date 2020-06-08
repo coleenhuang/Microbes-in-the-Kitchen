@@ -6,19 +6,14 @@ import Layout from '../components/layout/layout';
 import Article from  '../components/Article'
 
 export const query = graphql`
-query gQuery($uid: String $lang: String!){
+query gQuery($uid: String! $lang: String!){
     prismic {
-        allGroups(uid: $uid, lang: $lang) {
-          edges {
-            node {
-              _meta {
-                id
-                lang
-                uid
-              }
-              group
-              image
-            }
+        group(uid: $uid, lang: $lang) {
+          group
+          _meta {
+            id
+            uid
+            lang
           }
         }
         allPosts(lang: $lang) {
@@ -54,25 +49,26 @@ query gQuery($uid: String $lang: String!){
 }`
 
 export default ({data}) => {
-  const group = data.prismic.allGroups.edges.slice(0,1).pop()
+  const group = data.prismic.group
+  const groupName = data.prismic.group.group
   const posts = data.prismic.allPosts.edges.filter(
     ({node}) => {
       const g = node.body1.find((i) => i.type ==='group')
       const postList =[]
+      if (g===undefined){
+        return false
+      }
       g.fields.forEach(gr => postList.push(gr.group.group))
-      return postList.includes(group.node.group)
+      return postList.includes(groupName)
     }
   )
-    console.log('posts', posts)
+  console.log(posts)
   return (
     <Layout>
-        <h2 key={group.node._meta.id}>{group.node.group}</h2>
-        {posts.map(({ node }, index) => {
-            return(
-              <Article key={index} node={node} />
-        )})
-        }
-      <Link to="/">Back to index</Link>
+        <h2 key={group._meta.id}>{groupName}</h2>
+        {posts.map(({node}, index)=>(
+          <Article key={index} node={node} />
+        ))}
     </Layout>
   );
 }

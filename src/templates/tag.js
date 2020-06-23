@@ -12,7 +12,7 @@ query tagQuery($uid: String! $lang: String!){
             id
             uid
             lang
-          }          
+          }
         }
         allPosts(lang: $lang) {
             edges {
@@ -51,8 +51,11 @@ export default ({data}) => {
   const tag = data.prismic.tag
   const posts = data.prismic.allPosts.edges.filter(
     ({node}) => {
-      const t = node.body1.find((i) => i.type ==='tags')
       const tagList =[]
+      const meta = node.body1
+      if (!meta) return null
+      const t = meta.find((i) => i.type ==='tags')
+
       if(t===undefined){
         return false
       }

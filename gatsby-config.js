@@ -18,7 +18,7 @@ module.exports = {
       shortenUrlLangs: true,
       accessToken: process.env.API_KEY,
       path: '/preview',
-      previews: true,
+      previews: false,
       pages: [
       {
         type: 'Post',

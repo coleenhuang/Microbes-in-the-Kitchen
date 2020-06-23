@@ -50,11 +50,16 @@ query gQuery($uid: String! $lang: String!){
 
 export default ({data}) => {
   const group = data.prismic.group
+  if (!group) return null
   const groupName = data.prismic.group.group
+  console.log(data.prismic.allPosts.edges)
   const posts = data.prismic.allPosts.edges.filter(
     ({node}) => {
-      const g = node.body1.find((i) => i.type ==='group')
       const postList =[]
+      const meta = node.body1
+      if (!meta) return null
+
+      const g = meta.find((i) => i.type ==="group")
       if (g===undefined){
         return false
       }

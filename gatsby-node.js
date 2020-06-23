@@ -1,5 +1,12 @@
 const path = require('path')
 const lang = ['en-us', 'zh-tw']
+const fs = require('fs')
+let dir = './.cache/caches/gatsby-source-prismic-graphql'
+exports.onPreBootstrap = () => {
+    if (!fs.existsSync(dir)){
+        fs.mkdirSync(dir)
+    }
+}
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
     const { createPage } = actions    

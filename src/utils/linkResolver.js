@@ -12,8 +12,6 @@ module.exports = {
     if (doc.type ==='Tag') {
       return `/tag/${doc.uid}`
     }
-    if (doc.type === "Homepage"){
-      return '/';
-    }
+    return '/'
   },
 };

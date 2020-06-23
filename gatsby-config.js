@@ -12,17 +12,18 @@ module.exports = {
     {
     resolve: 'gatsby-source-prismic-graphql',
     options: {
-      repositoryName: 'microbes-in-the-kitchen', // required
-      defaultLang: 'en-us', 
+      repositoryName: process.env.REPO_NAME, // required
+      defaultLang: 'en-us',
       langs: ['en-us', 'zh-tw'],
       shortenUrlLangs: true,
       accessToken: process.env.API_KEY,
-      previews: false,
+      path: '/preview',
+      previews: true,
       pages: [
       {
         type: 'Post',
         match: '/:lang?/post/:uid',
-        path: '/post',
+        path: '/post-preview',
         component: require.resolve('./src/templates/post.js'),
         langs: ['en-us', 'zh-tw'],
       },
@@ -36,28 +37,28 @@ module.exports = {
       {
           type: 'Bookshelf',
           match: '/:lang?/bookshelf',
-          path:'/bookshelf',
+          path:'/bookshelf-preview',
           component: require.resolve('./src/templates/bookshelf.js'),
           langs: ['en-us', 'zh-tw']
       },
       {
         type: 'About',
         match: '/:lang?/about',
-        path:'/about',
+        path:'/about-preview',
         component: require.resolve('./src/templates/about.js'),
         langs: ['en-us', 'zh-tw']
       },
       {
         type: 'Group',
         match: '/:lang?/group/:uid',
-        path: '/group',
+        path: '/group-preview',
         component: require.resolve('./src/templates/group.js'),
         langs: ['en-us', 'zh-tw'],
       },
       {
         type: 'Tag',
         match: '/:lang?/tag/:uid',
-        path: '/tag',
+        path: '/tag-preview',
         component: require.resolve('./src/templates/tag.js'),
         langs: ['en-us', 'zh-tw'],
       }]

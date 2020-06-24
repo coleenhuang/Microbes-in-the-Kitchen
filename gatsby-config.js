@@ -12,7 +12,7 @@ module.exports = {
     {
     resolve: 'gatsby-source-prismic-graphql',
     options: {
-      repositoryName: process.env.REPO_NAME, // required
+      repositoryName: "microbes-in-the-kitchen", // required
       defaultLang: 'en-us',
       langs: ['en-us', 'zh-tw'],
       shortenUrlLangs: true,

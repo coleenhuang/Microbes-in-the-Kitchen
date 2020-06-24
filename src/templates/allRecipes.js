@@ -29,7 +29,11 @@ query recipeQuery($lang: String){
 `
 
 export default ({data}) => {
-    const posts = data.prismic.allPosts.edges.filter(({node}) => node.category.category==='Recipes')
+    if (!data.prismic.allPosts.edges) return null
+    const posts = data.prismic.allPosts.edges.filter(({node}) => {
+      if (!node.category) return null
+      return node.category.category==='Recipes'
+    })
     return (
         <Layout>
             <h2>Recipes</h2>
@@ -38,7 +42,7 @@ export default ({data}) => {
                   <LocalizedLink lang={node._meta.lang} type='post' uid={node._meta.uid}>
                     <p key={node._meta.id}>{node.title[0].text}</p>
                   </LocalizedLink>
-                  
+
                 )
             })}
         </Layout>

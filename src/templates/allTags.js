@@ -21,6 +21,7 @@ query alltagQuery($lang: String){
 }`
 export default ({data}) => {
     const tags = data.prismic.allTags.edges
+    if (!tags) return null
     return(
         <Layout>
             <h2>Tags</h2>
@@ -28,7 +29,7 @@ export default ({data}) => {
               <LocalizedLink lang={node._meta.lang} type='tag' uid={node._meta.uid}>
                 <p key={node._meta.id} style={{textAlign:'center'}}>{node.tag}</p>
               </LocalizedLink>
-                
+
             ))}
         </Layout>
     )

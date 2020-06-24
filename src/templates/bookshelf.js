@@ -44,6 +44,7 @@ query bookshelfQuery($uid: String! $lang: String!) {
 
 export default ({ data }) => {
     const bookshelf = data.prismic.bookshelf
+    if (!bookshelf) return null
     return(
         <Layout>
             <RichText render={bookshelf.title} />
@@ -56,8 +57,8 @@ export default ({ data }) => {
             return RichText.render(slice.primary.booktitle, linkResolver)
           }
           else if (slice.type==='image'){
-            return <img 
-              src={slice.primary.image.url} 
+            return <img
+              src={slice.primary.image.url}
               alt={slice.primary.image.alt}
               style={{display:'block', margin:'0 auto'}}/>
           }

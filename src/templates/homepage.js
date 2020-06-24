@@ -41,6 +41,7 @@ query homepageQuery($uid: String $lang: String!){
 
 export default ({data}) => {
   const homepage = data.prismic.allHomepages.edges
+  if (!homepage) return null
   const posts = data.prismic.allPosts.edges
   return (
     <Layout>

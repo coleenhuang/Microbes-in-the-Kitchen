@@ -49,6 +49,7 @@ query tagQuery($uid: String! $lang: String!){
 
 export default ({data}) => {
   const tag = data.prismic.tag
+  if (!tag) return null
   const posts = data.prismic.allPosts.edges.filter(
     ({node}) => {
       const tagList =[]

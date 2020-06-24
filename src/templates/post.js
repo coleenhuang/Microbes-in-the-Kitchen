@@ -49,18 +49,19 @@ query postQuery($uid: String $lang: String!){
 
 export default ({data}) => {
   const post = data.prismic.allPosts.edges
+  if (!post) return null
   console.log(post[0])
   return (
     <Layout>
       {post.map(({ node }) => (
-        <div key={node._meta.id} 
-        style={{ 
-          padding: '0 4rem 2rem 4rem', 
+        <div key={node._meta.id}
+        style={{
+          padding: '0 4rem 2rem 4rem',
           maxWidth: '800px',
           margin:`0 auto`}}>
         <RichText render={node.title} />
-        {node.main_image && <img 
-          src={node.main_image.homepage.url} 
+        {node.main_image && <img
+          src={node.main_image.homepage.url}
           alt={node.main_image.homepage.alt}
           style={{display:'block', margin:'0 auto'}} />}
         {node.body.map((slice, index) =>{
@@ -71,8 +72,8 @@ export default ({data}) => {
             return RichText.render(slice.primary.subtitle, linkResolver)
           }
           else if (slice.type==='image'){
-            return <img 
-              src={slice.primary.image.url} 
+            return <img
+              src={slice.primary.image.url}
               alt={slice.primary.image.alt}
               style={{display:'block', margin:'0 auto'}}/>
           }

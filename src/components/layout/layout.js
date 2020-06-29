@@ -22,7 +22,6 @@ const Layout = ({ children }) => {
     <div className='grid'>
       <Header siteTitle={data.site.siteMetadata.title} />
       <TopNav />
-      <SideNav />
       <main>{children}</main>
       <footer>
         © {new Date().getFullYear()}, Built with

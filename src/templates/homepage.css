@@ -1,5 +1,5 @@
 .articleContainer {
-    padding: 0 0.5rem;
+    padding: 0.5rem 10%;
 }
 
 
@@ -8,11 +8,11 @@
 }
 
 @media (min-width: 768px){
-    
+
 }
 @media (min-width: 992px){
-    
+
 }
 @media (min-width: 1200px){
-    
+
 }

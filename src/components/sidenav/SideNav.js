@@ -24,7 +24,7 @@ const SideNav = () => {
     }`)
     const lang = 'en-us'
     const groups = data.prismic.allGroups.edges.filter(group => group.node._meta.lang === lang)
-    
+
     return (
         <div style={{gridColumn: '-3/-2', gridRowStart:'3'}}>
             <section>
@@ -41,7 +41,6 @@ const SideNav = () => {
                     })}
                 </ul>
             </section>
-            <MyLinks />
             <OtherLinks />
         </div>
     )

@@ -12,6 +12,9 @@ module.exports = {
     if (doc.type ==='Tag') {
       return `${doc.lang}/tag/${doc.uid}`
     }
+    if (doc.lang === 'zh-tw') {
+      return '/zh'
+    }
     return '/'
   },
 };

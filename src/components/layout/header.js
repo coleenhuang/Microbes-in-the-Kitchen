@@ -5,8 +5,6 @@ import React from "react"
 const Header = ({ siteTitle }) => (
   <header
     style={{
-      gridColumn: '1/-1',
-      gridRow: '1/2',
       display: 'block',
       marginTop: '1.45rem',
       marginBottom: `1rem`,

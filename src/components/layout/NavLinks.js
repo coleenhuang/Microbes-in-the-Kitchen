@@ -1,8 +1,9 @@
 import React from 'react'
-
-const NavLinks () = {
+import styles from './NavLinks.module.css'
+import { Link } from 'gatsby'
+const NavLinks =  () => {
   return (
-    <ul >
+    <ul className={styles.container}>
         <li>
             <Link to='/about'>About</Link>
         </li>
@@ -17,9 +18,7 @@ const NavLinks () = {
             </Link>
         </li>
         <li>
-            <Link to='/tags'>
-                Tags
-            </Link>
+            Seasons
         </li>
         <li>
           Links

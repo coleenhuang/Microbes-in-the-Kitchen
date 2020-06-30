@@ -4,10 +4,10 @@ import { Link } from 'gatsby'
 
 import Lang from './Lang.js'
 
-const TopNav = () => {
+const TopNav = (props) => {
     return (
         <div className={styles.flexContainer}>
-          <div>Menu</div>
+          <div onClick={props.switch}> Menu </div>
           <Lang />
         </div>
     )

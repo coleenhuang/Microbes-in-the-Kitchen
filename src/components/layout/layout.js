@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useState} from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
@@ -18,17 +18,20 @@ const Layout = ({ children }) => {
       }
     }
   `)
+  const [showMenu, setMenu] = useState(false)
+  const toggleMenu = () => setMenu(showMenu? false: true)
 
   return (
     <div className='grid'>
       <Header siteTitle={data.site.siteMetadata.title} />
-      <TopNav />
-      <Menu />
+      <TopNav switch={toggleMenu}/>
+      <Menu open={showMenu} switch={toggleMenu}/>
       <main>{children}</main>
       <footer>
         © {new Date().getFullYear()}, Built with
         {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>        </footer>
+        <a href="https://www.gatsbyjs.org">Gatsby</a>
+      </footer>
     </div>
   )
 }

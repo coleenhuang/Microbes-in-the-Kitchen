@@ -1,0 +1,16 @@
+{
+  "en-us": {
+    "translation":{
+      "siteMetadata": {
+        "title": "Microbes in the Kitchen"
+      }
+    }
+  },
+  "zh-tw": {
+    "translation":{
+      "siteMetadata": {
+        "title": "廚房微生物日常"
+      }
+    }
+  }
+}

@@ -7,6 +7,7 @@ import TopNav from './TopNav'
 import SideNav from '../sidenav/SideNav'
 import Menu from './Menu.js'
 import "./layout.css"
+import { useTranslation } from "react-i18next"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -18,19 +19,18 @@ const Layout = ({ children }) => {
       }
     }
   `)
+  const { t } = useTranslation();
   const [showMenu, setMenu] = useState(false)
   const toggleMenu = () => setMenu(showMenu? false: true)
 
   return (
-    <div className='grid'>
+    <div>
       <Header siteTitle={data.site.siteMetadata.title} />
       <TopNav switch={toggleMenu}/>
       <Menu open={showMenu} switch={toggleMenu}/>
       <main>{children}</main>
       <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
+        © {new Date().getFullYear()}, {t(`siteMetadata.footer`)}
       </footer>
     </div>
   )

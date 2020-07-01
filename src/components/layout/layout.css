@@ -2,9 +2,7 @@
     font-family: 'Muli';
     box-sizing: border-box;
 }
-.grid {
 
-}
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Ovo';
@@ -21,7 +19,7 @@ main {
 
 
 footer {
-
+  padding: 0 10vw;
 }
 
 @media (min-width: 480px){

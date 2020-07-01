@@ -2,14 +2,16 @@
   "en-us": {
     "translation": {
       "siteMetadata": {
-        "title": "Translation Example"
+        "title": "Microbes in the Kitchen",
+        "footer": "Built with Gatsby"
       }
     }
   },
   "zh-tw": {
     "translation": {
       "siteMetadata": {
-        "title": "Παράδειγμα Μετάφρασης"
+        "title": "廚房微生物日常",
+        "footer": "使用 Gatsby 建置"
       }
     }
   }

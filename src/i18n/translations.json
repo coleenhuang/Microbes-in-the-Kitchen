@@ -1,15 +1,15 @@
 {
   "en-us": {
-    "translation":{
+    "translation": {
       "siteMetadata": {
-        "title": "Microbes in the Kitchen"
+        "title": "Translation Example"
       }
     }
   },
   "zh-tw": {
-    "translation":{
+    "translation": {
       "siteMetadata": {
-        "title": "廚房微生物日常"
+        "title": "Παράδειγμα Μετάφρασης"
       }
     }
   }

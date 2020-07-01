@@ -5,8 +5,6 @@ import translations from './translations'
 i18next.use(LanguageDetector).init({
   fallbackLng: 'en-us',
   resources: translations,
-  ns: ['translations'],
-  defaultNS: 'translations',
   returnObjects: true,
   debug: process.env.NODE_ENV === 'development',
   interpolation: {
@@ -15,6 +13,7 @@ i18next.use(LanguageDetector).init({
   react: {
       wait: true,
   },
+  lowerCaseLng: true,
 });
 
 i18next.languages = ['zh-tw', 'en-us'];

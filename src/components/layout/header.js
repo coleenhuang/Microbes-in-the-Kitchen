@@ -1,9 +1,11 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import { useTranslation } from "react-i18next"
 
-const Header = ({ siteTitle }) => (
-  <header
+const Header = ({ siteTitle }) => {
+  const { t } = useTranslation();
+  return (<header
     style={{
       display: 'block',
       marginTop: '1.45rem',
@@ -26,12 +28,12 @@ const Header = ({ siteTitle }) => (
             textDecoration: `none`,
           }}
         >
-          {siteTitle}
+          {t('siteMetadata.title')}
         </Link>
       </h1>
     </div>
   </header>
-)
+)}
 
 Header.propTypes = {
   siteTitle: PropTypes.string,

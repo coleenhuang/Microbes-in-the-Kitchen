@@ -4,10 +4,12 @@
   padding: 10vh;
   background-color: white;
   position: fixed;
-  top: -100vh;
+  top: 0;
+  transform: translateY(-100vh); /* will be transitioned to 0px */
+  transition: transform 0.3s, height 0.3s;
   overflow: hidden;
 }
 
 .active {
-  top: 0;
+  transform: translateY(0px);
 }

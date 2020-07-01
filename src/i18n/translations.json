@@ -4,7 +4,8 @@
       "siteMetadata": {
         "title": "Microbes in the Kitchen",
         "footer": "Built with Gatsby"
-      }
+      },
+      "langMenu": "中"
     }
   },
   "zh-tw": {
@@ -12,7 +13,8 @@
       "siteMetadata": {
         "title": "廚房微生物日常",
         "footer": "使用 Gatsby 建置"
-      }
+      },
+      "langMenu": "en"
     }
   }
 }

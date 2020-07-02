@@ -3,6 +3,8 @@ import { linkResolver } from 'gatsby-source-prismic-graphql';
 import { RichText } from 'prismic-reactjs';
 import React from 'react';
 import Layout from '../components/layout/layout';
+import { useTranslation } from 'react-i18next';
+import { language } from 'i18next'
 
 export const query = graphql`
 query postQuery($uid: String $lang: String!){
@@ -47,10 +49,13 @@ query postQuery($uid: String $lang: String!){
   }
 }`
 
-export default ({data}) => {
+export default ({data, pageContext}) => {
   const post = data.prismic.allPosts.edges
   if (!post) return null
-  console.log(post[0])
+  const { i18n } = useTranslation();
+  if (pageContext.lang !== i18n.language) {
+    i18n.changeLanguage(pageContext.lang)
+  }
   return (
     <Layout>
       {post.map(({ node }) => (

@@ -2,6 +2,8 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/layout/layout'
 import LocalizedLink from '../utils/localizedLink'
+import { useTranslation } from 'react-i18next';
+import { language } from 'i18next'
 
 export const query = graphql`
 query recipeQuery($lang: String){
@@ -28,12 +30,17 @@ query recipeQuery($lang: String){
   }
 `
 
-export default ({data}) => {
+export default ({data, pageContext}) => {
     if (!data.prismic.allPosts.edges) return null
     const posts = data.prismic.allPosts.edges.filter(({node}) => {
       if (!node.category) return null
       return node.category.category==='Recipes'
     })
+    const { i18n } = useTranslation();
+    if (pageContext.lang !== i18n.language) {
+      i18n.changeLanguage(pageContext.lang)
+    }
+    
     return (
         <Layout>
             <h2>Recipes</h2>

@@ -2,6 +2,8 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/layout/layout'
 import LocalizedLink from '../utils/localizedLink'
+import { useTranslation } from 'react-i18next';
+import { language } from 'i18next'
 
 export const query = graphql`
 query alltagQuery($lang: String){
@@ -19,9 +21,14 @@ query alltagQuery($lang: String){
         }
     }
 }`
-export default ({data}) => {
+export default ({data, pageContext}) => {
     const tags = data.prismic.allTags.edges
     if (!tags) return null
+    const { i18n } = useTranslation();
+    if (pageContext.lang !== i18n.language) {
+      i18n.changeLanguage(pageContext.lang)
+    }
+    
     return(
         <Layout>
             <h2>Tags</h2>

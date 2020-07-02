@@ -1,5 +1,7 @@
 import { graphql, Link } from 'gatsby';
 import { linkResolver } from 'gatsby-source-prismic-graphql';
+import { useTranslation } from 'react-i18next';
+import { language } from 'i18next'
 import { RichText } from 'prismic-reactjs';
 import React from 'react';
 import Layout from '../components/layout/layout';
@@ -48,7 +50,7 @@ query gQuery($uid: String! $lang: String!){
       }
 }`
 
-export default ({data}) => {
+export default ({data, pageContext}) => {
   const group = data.prismic.group
   if (!group) return null
   const groupName = data.prismic.group.group
@@ -67,6 +69,10 @@ export default ({data}) => {
       return postList.includes(groupName)
     }
   )
+  const { i18n } = useTranslation();
+  if (pageContext.lang !== i18n.language) {
+    i18n.changeLanguage(pageContext.lang)
+  }
   console.log(posts)
   return (
     <Layout>

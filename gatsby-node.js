@@ -8,7 +8,7 @@ exports.onPreBootstrap = () => {
     }
 }
 
-exports.createPages = async ({ graphql, actions, reporter }) => {
+exports.createPages = async ({ graphql, actions, reporter, page }) => {
     const { createPage } = actions
     const allRecipesTemplate = path.resolve(`src/templates/allRecipes.js`)
     const allTagsTemplate = path.resolve(`src/templates/allTags.js`)

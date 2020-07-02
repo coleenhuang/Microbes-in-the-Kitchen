@@ -1,6 +1,7 @@
 import { graphql } from 'gatsby';
 import { linkResolver } from 'gatsby-source-prismic-graphql';
-
+import { useTranslation } from 'react-i18next';
+import { language } from 'i18next'
 import React from 'react';
 import Article from '../components/Article'
 import Layout from '../components/layout/layout';
@@ -39,7 +40,11 @@ query homepageQuery($uid: String $lang: String!){
   }
 }`
 
-export default ({data}) => {
+export default ({data, pageContext}) => {
+  const { i18n } = useTranslation();
+  if (pageContext.lang !== i18n.language) {
+    i18n.changeLanguage(pageContext.lang)
+  }
   const homepage = data.prismic.allHomepages.edges
   if (!homepage) return null
   const posts = data.prismic.allPosts.edges

@@ -1,5 +1,7 @@
 import { graphql} from 'gatsby';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { language } from 'i18next'
 import Layout from '../components/layout/layout';
 import Article from  '../components/Article'
 
@@ -47,7 +49,7 @@ query tagQuery($uid: String! $lang: String!){
     }
 }`
 
-export default ({data}) => {
+export default ({data, pageContext}) => {
   const tag = data.prismic.tag
   if (!tag) return null
   const posts = data.prismic.allPosts.edges.filter(
@@ -64,7 +66,10 @@ export default ({data}) => {
       return tagList.includes(tag.tag)
     }
   )
-    console.log('posts', posts)
+  const { i18n } = useTranslation();
+  if (pageContext.lang !== i18n.language) {
+    i18n.changeLanguage(pageContext.lang)
+  }
   return (
     <Layout>
         <h2 key={tag._meta.id}>{tag.tag}</h2>

@@ -2,6 +2,8 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/layout/layout'
 import { RichText } from 'prismic-reactjs'
+import { useTranslation } from 'react-i18next';
+import { language } from 'i18next'
 
 export const query = graphql`
 query aboutQuery($uid: String! $lang: String!){
@@ -19,9 +21,14 @@ query aboutQuery($uid: String! $lang: String!){
       }
 }`
 
-export default ({data}) => {
+export default ({data, pageContext}) => {
     const about = data.prismic.about
     if (!about) return null
+    const { i18n } = useTranslation();
+    if (pageContext.lang !== i18n.language) {
+      i18n.changeLanguage(pageContext.lang)
+    }
+    
     return (
     <Layout>
         <RichText render={about.title} />

@@ -14,6 +14,12 @@ query bookshelfQuery($uid: String! $lang: String!) {
           id
           lang
           uid
+          alternateLanguages {
+            uid
+            id
+            type
+            lang
+          }
         }
         intro
         title
@@ -51,6 +57,7 @@ export default ({ data, pageContext }) => {
     if (pageContext.lang !== i18n.language) {
       i18n.changeLanguage(pageContext.lang)
     }
+    const altLang = bookshelf._meta.alternateLanguages?bookshelf._meta.alternateLanguages[0]:null
 
     return(
         <Layout>

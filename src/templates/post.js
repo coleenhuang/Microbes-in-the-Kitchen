@@ -62,9 +62,10 @@ export default ({data, pageContext}) => {
   if (pageContext.lang !== i18n.language) {
     i18n.changeLanguage(pageContext.lang)
   }
-  const altLang = post._meta.alternateLanguages[0]
+  const altLang = post._meta.alternateLanguages? post._meta.alternateLanguages[0] : null
+  
   return (
-    <Layout>
+    <Layout altLang={altLang}>
         <div key={post._meta.id}
         style={{
           padding: '0 4rem 2rem 4rem',

@@ -14,6 +14,12 @@ query tagQuery($uid: String! $lang: String!){
             id
             uid
             lang
+            alternateLanguages {
+              uid
+              id
+              type
+              lang
+            }
           }
         }
         allPosts(lang: $lang) {
@@ -70,8 +76,9 @@ export default ({data, pageContext}) => {
   if (pageContext.lang !== i18n.language) {
     i18n.changeLanguage(pageContext.lang)
   }
+  const altLang = tag._meta.alternateLanguages[0]
   return (
-    <Layout>
+    <Layout altLang={altLang}>
         <h2 key={tag._meta.id}>{tag.tag}</h2>
         {posts.map(({ node }, index) => {
             return(

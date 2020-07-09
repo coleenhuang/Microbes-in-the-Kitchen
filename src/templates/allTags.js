@@ -1,7 +1,7 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import Layout from '../components/layout/layout'
-import LocalizedLink from '../utils/localizedLink'
+import { linkResolver } from 'gatsby-source-prismic-graphql'
 import { useTranslation } from 'react-i18next';
 import { language } from 'i18next'
 
@@ -13,6 +13,8 @@ query alltagQuery($lang: String){
             node {
               tag
               _meta {
+                lang
+                type
                 id
                 uid
               }
@@ -28,14 +30,20 @@ export default ({data, pageContext}) => {
     if (pageContext.lang !== i18n.language) {
       i18n.changeLanguage(pageContext.lang)
     }
+    const altLang = {
+      //required information for linkResolver
+      uid: "tags",
+      lang: pageContext.lang==='en-us'?'zh-tw':'en-us',
+      type: 'alltags'
+    }
     
     return(
-        <Layout>
+        <Layout altLang={altLang}>
             <h2>Tags</h2>
             {tags.map(({ node }) => (
-              <LocalizedLink lang={node._meta.lang} type='tag' uid={node._meta.uid}>
-                <p key={node._meta.id} style={{textAlign:'center'}}>{node.tag}</p>
-              </LocalizedLink>
+              <Link to={linkResolver(node._meta)} key={node._meta.id}>
+                <p style={{textAlign:'center'}}>{node.tag}</p>
+              </Link>
 
             ))}
         </Layout>

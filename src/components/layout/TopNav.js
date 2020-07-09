@@ -10,7 +10,7 @@ const TopNav = (props) => {
     return (
         <div className={styles.flexContainer}>
           <div onClick={props.switch}> {t('menu')} </div>
-          <Lang />
+          <Lang altLang={props.altLang} />
         </div>
     )
 }

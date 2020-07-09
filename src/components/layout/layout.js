@@ -9,7 +9,7 @@ import Menu from './Menu.js'
 import "./layout.css"
 import { useTranslation } from "react-i18next"
 
-const Layout = ({ children, }) => {
+const Layout = ({ children, altLang}) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -26,7 +26,7 @@ const Layout = ({ children, }) => {
   return (
     <div>
       <Header siteTitle={t(`siteMetadata.title`)} />
-      <TopNav switch={toggleMenu} />
+      <TopNav switch={toggleMenu} altLang={altLang}/>
       <Menu open={showMenu} switch={toggleMenu}/>
       <main>{children}</main>
       <footer>

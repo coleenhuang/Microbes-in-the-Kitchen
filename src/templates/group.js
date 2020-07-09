@@ -16,6 +16,12 @@ query gQuery($uid: String! $lang: String!){
             id
             uid
             lang
+            alternateLanguages {
+              uid
+              id
+              type
+              lang
+            }
           }
         }
         allPosts(lang: $lang) {
@@ -54,7 +60,7 @@ export default ({data, pageContext}) => {
   const group = data.prismic.group
   if (!group) return null
   const groupName = data.prismic.group.group
-  console.log(data.prismic.allPosts.edges)
+  
   const posts = data.prismic.allPosts.edges.filter(
     ({node}) => {
       const postList =[]
@@ -73,9 +79,10 @@ export default ({data, pageContext}) => {
   if (pageContext.lang !== i18n.language) {
     i18n.changeLanguage(pageContext.lang)
   }
-  console.log(posts)
+  
+  const altLang = group._meta.alternateLanguages[0]
   return (
-    <Layout>
+    <Layout altLang={altLang}>
         <h2 key={group._meta.id}>{groupName}</h2>
         {posts.map(({node}, index)=>(
           <Article key={index} node={node} />

@@ -13,6 +13,12 @@ query aboutQuery($uid: String! $lang: String!){
             id
             lang
             uid
+            alternateLanguages {
+              uid
+              id
+              type
+              lang
+            }
           }
           body
           image
@@ -28,9 +34,10 @@ export default ({data, pageContext}) => {
     if (pageContext.lang !== i18n.language) {
       i18n.changeLanguage(pageContext.lang)
     }
-    
+    const altLang = about._meta.alternateLanguages[0]
+
     return (
-    <Layout>
+    <Layout altLang={altLang}>
         <RichText render={about.title} />
         <img
             src={about.image.url}

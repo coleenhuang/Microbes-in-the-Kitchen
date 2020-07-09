@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useStaticQuery, graphql } from 'gatsby'
 import MyLinks from './MyLinks'
 import OtherLinks from './OtherLinks'
-import LocalizedLink from '../../utils/localizedLink'
+import { linkResolver } from 'gatsby-source-prismic-graphql'
 
 const SideNav = () => {
     const data = useStaticQuery(graphql`
@@ -14,6 +14,7 @@ const SideNav = () => {
                     _meta {
                       id
                       lang
+                      type
                       uid
                     }
                     group
@@ -33,9 +34,9 @@ const SideNav = () => {
                     {groups.map(({ node }) => {
                         return (
                             <li key={node._meta.id}>
-                                <LocalizedLink lang={lang} type='group' uid={node._meta.uid}>
+                                <Link to={linkResolver(node._meta)}>
                                     {node.group}
-                                </LocalizedLink>
+                                </Link>
                             </li>
                         )
                     })}

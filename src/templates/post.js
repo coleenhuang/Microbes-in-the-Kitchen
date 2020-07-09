@@ -68,7 +68,6 @@ export default ({data, pageContext}) => {
     <Layout altLang={altLang}>
         <div key={post._meta.id}
         style={{
-          padding: '0 4rem 2rem 4rem',
           maxWidth: '800px',
           margin:`0 auto`}}>
         <RichText render={post.title} />

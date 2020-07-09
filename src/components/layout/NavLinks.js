@@ -1,28 +1,28 @@
 import React from 'react'
 import styles from './NavLinks.module.css'
 import { Link } from 'gatsby'
+import { useTranslation } from "react-i18next"
+
 
 const NavLinks =  () => {
+    const { t } = useTranslation();
   return (
     <ul className={styles.container}>
         <li>
-            <Link to='/about'>About</Link>
+            <Link to='/about'>{t('nav.about')}</Link>
         </li>
         <li>
             <Link to='/bookshelf'>
-                Bookshelf
+            {t('nav.bookshelf')}
             </Link>
         </li>
         <li>
             <Link to='/recipes'>
-                Recipes
+                {t('nav.recipes')}
             </Link>
         </li>
         <li>
-            Seasons
-        </li>
-        <li>
-          Links
+            {t('nav.links')}
         </li>
     </ul>
   )

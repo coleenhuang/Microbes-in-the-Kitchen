@@ -56,48 +56,26 @@ query postQuery($uid: String $lang: String!){
 }`
 
 export default ({data, pageContext}) => {
-  const post = data.prismic.allPosts.edges
+  const post = data.prismic.allPosts.edges[0].node
   if (!post) return null
   const { i18n } = useTranslation();
   if (pageContext.lang !== i18n.language) {
     i18n.changeLanguage(pageContext.lang)
   }
-
+  const altLang = post._meta.alternateLanguages[0]
   return (
     <Layout>
-      {post.map(({ node }) => (
-        <div key={node._meta.id}
+        <div key={post._meta.id}
         style={{
           padding: '0 4rem 2rem 4rem',
           maxWidth: '800px',
           margin:`0 auto`}}>
-        <RichText render={node.title} />
-        <div>
-        {/* map the alternateLanguages and render links for each one
-          TODO: Make this functional
-          Attach the correct links to the language switcher
-          */}
-
-        {node._meta.alternateLanguages
-          ? node._meta.alternateLanguages.map((altLang, index) => {
-              console.log(altLang)
-              return (
-                <Link
-                  className="lang"
-                  key={index}
-                  to={linkResolver(altLang)}
-                >
-                  {altLang.lang}
-                </Link>
-              )
-            })
-          : null}
-      </div>
-        {node.main_image && <img
-          src={node.main_image.homepage.url}
-          alt={node.main_image.homepage.alt}
+        <RichText render={post.title} />
+        {post.main_image && <img
+          src={post.main_image.homepage.url}
+          alt={post.main_image.homepage.alt}
           style={{display:'block', margin:'0 auto'}} />}
-        {node.body.map((slice, index) =>{
+        {post.body.map((slice, index) =>{
           if (slice.type==='text'){
             return RichText.render(slice.primary.text, linkResolver)
           }
@@ -115,7 +93,6 @@ export default ({data, pageContext}) => {
           }
         })}
         </div>
-      ) )}
     </Layout>
   );
 }

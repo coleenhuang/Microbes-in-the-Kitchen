@@ -6,7 +6,7 @@
   text-align: center;
 }
 
-li {
+.container li {
   list-style-type: none;
   font-size: 22px;
   padding: 2rem;

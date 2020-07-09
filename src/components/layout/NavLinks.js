@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './NavLinks.module.css'
 import { Link } from 'gatsby'
+
 const NavLinks =  () => {
   return (
     <ul className={styles.container}>

@@ -33,6 +33,7 @@ query homepageQuery($uid: String $lang: String!){
                 _meta {
                   id
                   lang
+                  type
                   uid
                 }
                 title

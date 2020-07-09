@@ -30,7 +30,9 @@ query gQuery($uid: String! $lang: String!){
                 title
                 _meta {
                   id
+                  uid
                   lang
+                  type
                 }
                 main_image
                 body1 {

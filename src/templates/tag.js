@@ -29,6 +29,7 @@ query tagQuery($uid: String! $lang: String!){
                   uid
                   lang
                   id
+                  type
                 }
                 title
                 main_image

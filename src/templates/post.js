@@ -17,6 +17,12 @@ query postQuery($uid: String $lang: String!){
             lang
             tags
             uid
+            alternateLanguages {
+              uid
+              id
+              type
+              lang
+            }
           }
           title
           main_image
@@ -56,6 +62,7 @@ export default ({data, pageContext}) => {
   if (pageContext.lang !== i18n.language) {
     i18n.changeLanguage(pageContext.lang)
   }
+
   return (
     <Layout>
       {post.map(({ node }) => (
@@ -65,6 +72,27 @@ export default ({data, pageContext}) => {
           maxWidth: '800px',
           margin:`0 auto`}}>
         <RichText render={node.title} />
+        <div>
+        {/* map the alternateLanguages and render links for each one
+          TODO: Make this functional
+          Attach the correct links to the language switcher
+          */}
+
+        {node._meta.alternateLanguages
+          ? node._meta.alternateLanguages.map((altLang, index) => {
+              console.log(altLang)
+              return (
+                <Link
+                  className="lang"
+                  key={index}
+                  to={linkResolver(altLang)}
+                >
+                  {altLang.lang}
+                </Link>
+              )
+            })
+          : null}
+      </div>
         {node.main_image && <img
           src={node.main_image.homepage.url}
           alt={node.main_image.homepage.alt}

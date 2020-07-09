@@ -1,20 +1,18 @@
-module.exports = {
-  linkResolver(doc) {
-    if (doc.type === 'Recipe') {
-      return `${doc.lang}/recipe/${doc.uid}`;
+
+ export const linkResolver = (doc) => {
+   const language = doc.lang==='zh-tw'?'zh/':'/'
+    if (doc.type === 'post') {
+      return `${language}post/${doc.uid}`;
     }
-    if (doc.type === 'Post') {
-      return `${doc.lang}/post/${doc.uid}`;
+    else if (doc.type === 'group') {
+      return `${language}group/${doc.uid}`;
     }
-    if (doc.type === 'Group') {
-      return `${doc.lang}/group/${doc.uid}`;
+    else if (doc.type ==='tag') {
+      return `${language}/tag/${doc.uid}`
     }
-    if (doc.type ==='Tag') {
-      return `${doc.lang}/tag/${doc.uid}`
-    }
-    if (doc.lang === 'zh-tw') {
+    else if (doc.lang === 'zh-tw') {
       return '/zh'
     }
     return '/'
-  },
-};
+  }
+

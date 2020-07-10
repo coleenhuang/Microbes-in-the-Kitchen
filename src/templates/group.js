@@ -70,10 +70,12 @@ export default ({data, pageContext}) => {
       if (!meta) return null
 
       const g = meta.find((i) => i.type ==="group")
-      if (g===undefined){
+      if (!g){
         return false
       }
-      g.fields.forEach(gr => postList.push(gr.group.group))
+      g.fields.forEach(gr => {
+        if (!gr.group) return false
+        return postList.push(gr.group.group)})
       return postList.includes(groupName)
     }
   )

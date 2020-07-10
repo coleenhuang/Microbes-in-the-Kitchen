@@ -59,18 +59,24 @@ query tagQuery($uid: String! $lang: String!){
 export default ({data, pageContext}) => {
   const tag = data.prismic.tag
   if (!tag) return null
+  const tagName = tag.tag
   const posts = data.prismic.allPosts.edges.filter(
+    //filters to get posts that match desired tag
     ({node}) => {
       const tagList =[]
       const meta = node.body1
       if (!meta) return null
       const t = meta.find((i) => i.type ==='tags')
 
-      if(t===undefined){
+      if(!t){
+        //if there is no tag field
         return false
       }
-      t.fields.forEach(ta => tagList.push(ta.tag.tag))
-      return tagList.includes(tag.tag)
+      t.fields.forEach(ta => {
+        if (!ta.tag) return false //if tag field left blank
+        //Makes list of tags in post
+        return tagList.push(ta.tag.tag)})
+      return tagList.includes(tagName)
     }
   )
   const { i18n } = useTranslation();

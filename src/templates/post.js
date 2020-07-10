@@ -7,56 +7,54 @@ import { useTranslation } from 'react-i18next';
 import { language } from 'i18next'
 
 export const query = graphql`
-query postQuery($uid: String $lang: String!){
+query postQuery($uid: String! $lang: String!){
   prismic {
-    allPosts(uid: $uid, lang:$lang) {
-      edges {
-        node {
-          _meta {
-            id
-            lang
-            tags
-            uid
-            alternateLanguages {
-              uid
-              id
-              type
-              lang
-            }
+    post(uid: $uid, lang: $lang) {
+      title
+      main_image
+      summary
+      _meta {
+        id
+        uid
+        lang
+        type
+        alternateLanguages {
+          id
+          lang
+          type
+          uid
+        }
+      }
+      body {
+        ... on PRISMIC_PostBodyText {
+          type
+          label
+          primary {
+            text
           }
-          title
-          main_image
-          body {
-            ... on PRISMIC_PostBodyText {
-              type
-              label
-              primary {
-                text
-              }
-            }
-            ... on PRISMIC_PostBodySubtitle {
-              type
-              label
-              primary {
-                subtitle
-              }
-            }
-            ... on PRISMIC_PostBodyImage {
-              type
-              label
-              primary {
-                image
-              }
-            }
+        }
+        ... on PRISMIC_PostBodyImage {
+          type
+          label
+          primary {
+            image
+          }
+        }
+        ... on PRISMIC_PostBodySubtitle {
+          type
+          label
+          primary {
+            subtitle
           }
         }
       }
     }
   }
-}`
+}
+`
 
 export default ({data, pageContext}) => {
-  const post = data.prismic.allPosts.edges[0].node
+  const post = data.prismic.post
   if (!post) return null
   const { i18n } = useTranslation();
   if (pageContext.lang !== i18n.language) {

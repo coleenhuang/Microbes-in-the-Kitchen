@@ -54,10 +54,9 @@ export default ({data, pageContext}) => {
   const homepage = data.prismic.allHomepages.edges
   if (!homepage) return null
   const posts = data.prismic.allPosts.edges
-  const altLang = homepage[0].node._meta.alternateLanguages?homepage[0].node._meta.alternateLanguages:null
-  console.log(altLang)
+ 
   return (
-    <Layout >
+    <Layout>
         <div className='articleContainer'>
           {posts.map(({ node }, index) =>{
           return (

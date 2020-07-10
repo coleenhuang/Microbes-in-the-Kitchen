@@ -77,7 +77,7 @@ export default ({data, pageContext}) => {
   if (pageContext.lang !== i18n.language) {
     i18n.changeLanguage(pageContext.lang)
   }
-  const altLang = tag._meta.alternateLanguages[0]
+  const altLang = tag._meta.alternateLanguages?tag._meta.alternateLanguages[0]:null
   return (
     <Layout altLang={altLang}>
         <h2 key={tag._meta.id}>{tag.tag}</h2>

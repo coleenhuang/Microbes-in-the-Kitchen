@@ -34,7 +34,7 @@ export default ({data, pageContext}) => {
     if (pageContext.lang !== i18n.language) {
       i18n.changeLanguage(pageContext.lang)
     }
-    const altLang = about._meta.alternateLanguages[0]
+    const altLang = about._meta.alternateLanguages?about._meta.alternateLanguages[0]:null
 
     return (
     <Layout altLang={altLang}>

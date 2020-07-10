@@ -84,7 +84,7 @@ export default ({data, pageContext}) => {
     i18n.changeLanguage(pageContext.lang)
   }
   
-  const altLang = group._meta.alternateLanguages[0]
+  const altLang = group._meta.alternateLanguages?group._meta.alternateLanguages[0]:null
   return (
     <Layout altLang={altLang}>
         <h2 key={group._meta.id}>{groupName}</h2>

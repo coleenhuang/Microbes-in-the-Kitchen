@@ -9,20 +9,22 @@ const NavLinks =  () => {
   return (
     <ul className={styles.container}>
         <li>
-            <Link to='/about'>{t('nav.about')}</Link>
+            <Link to={t('nav.aboutLink')}>{t('nav.about')}</Link>
         </li>
         <li>
-            <Link to='/bookshelf'>
+            <Link to={t('nav.bookshelfLink')}>
             {t('nav.bookshelf')}
             </Link>
         </li>
         <li>
-            <Link to='/recipes'>
+            <Link to={t('nav.recipesLink')}>
                 {t('nav.recipes')}
             </Link>
         </li>
         <li>
+            <Link to={t('nav.linkPageLink')}>
             {t('nav.links')}
+            </Link>
         </li>
     </ul>
   )

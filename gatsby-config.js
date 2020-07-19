@@ -48,6 +48,12 @@ module.exports = {
         langs: ['en-us', 'zh-tw']
       },
       {
+        type: "Links",
+        match: "/:lang?/links",
+        component: require.resolve('./src/templates/links.js'),
+        langs: ['en-us', 'zh-tw']
+      },
+      {
         type: 'Group',
         match: '/:lang?/group/:uid',
         path: '/group-preview',

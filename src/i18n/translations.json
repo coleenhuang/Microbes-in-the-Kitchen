@@ -9,9 +9,13 @@
       "langMenu": "中",
       "nav": {
         "about": "About",
+        "aboutLink": "/about",
         "bookshelf": "Bookshelf",
+        "bookshelfLink": "/bookshelf",
         "recipes": "Recipes",
-        "links": "Links"
+        "recipesLink": "/recipes",
+        "links": "Links",
+        "linkPageLink": "/links"
       }
     }
   },
@@ -25,9 +29,13 @@
       "langMenu": "en",
       "nav": {
         "about": "關於我",
+        "aboutLink": "/zh/about",
         "bookshelf": "書架",
+        "bookshelfLink": "/zh/bookshelf",
         "recipes": "食譜",
-        "links": "連結"
+        "recipesLink": "/zh/recipes",
+        "links": "連結",
+        "linkPageLink": "/zh/links"
       }
     }
   }

@@ -19,6 +19,14 @@ main {
     max-width: 800px;
 }
 
+.links li {
+  margin-left: -20px;
+  margin-top: 0.5rem;
+  text-align: center;
+  list-style-type: none;
+  font-size: 18px;
+}
+
 footer {
   padding: 2rem 10vw 0;
 }
@@ -31,7 +39,7 @@ footer {
 
 }
 @media (min-width: 992px){
-    
+
 }
 @media (min-width: 1200px){
 

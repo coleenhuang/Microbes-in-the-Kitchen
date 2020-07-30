@@ -4,7 +4,6 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
 import TopNav from './TopNav'
-import SideNav from '../sidenav/SideNav'
 import Menu from './Menu.js'
 import "./layout.css"
 import { useTranslation } from "react-i18next"

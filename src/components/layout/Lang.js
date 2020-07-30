@@ -27,7 +27,9 @@ const Lang = ({altLang}) => {
   }
   else{
     return (
-    <Link to={otherHome} onClick={changeLang}>{t("langMenu")}</Link>
+    <Link to={otherHome} onClick={changeLang}>
+      <span style={{display:'block'}}>{t("langMenu")}</span>
+    </Link>
   )}
   
 }

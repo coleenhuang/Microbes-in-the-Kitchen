@@ -1,7 +1,8 @@
 # Microbes in the Kitchen
 
-The personal recipe blog of an amateur microbiologist.
+Site: https://microbes-in-the-kitchen.now.sh/
 
-Built with the static site generator Gatsby and the headless CMS Prismic.
-Chinese version of the site still under construction.
+The bilingual personal recipe blog of an amateur microbiologist.
 
+## Techologies Used
+This site was built with the technologies React, CSS, Gatsby, and GraphQL. Unit testing was conducted using Jest.

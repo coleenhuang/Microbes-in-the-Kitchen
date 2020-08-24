@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Menu renders correctly 1`] = `
+<div
+  className="menuWrapper undefined"
+>
+  <ul
+    className="container"
+  >
+    <li>
+      <a
+        href="/nav.aboutLink"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        nav.about
+      </a>
+    </li>
+    <li>
+      <a
+        href="/nav.bookshelfLink"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        nav.bookshelf
+      </a>
+    </li>
+    <li>
+      <a
+        href="/nav.recipesLink"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        nav.recipes
+      </a>
+    </li>
+    <li>
+      <a
+        href="/nav.linkPageLink"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        nav.links
+      </a>
+    </li>
+  </ul>
+</div>
+`;
